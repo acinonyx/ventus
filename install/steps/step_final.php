@@ -1,6 +1,6 @@
 <?php
 /*
- * WiND - Wireless Nodes Database
+ * Ventus - Wireless Nodes Database
  *
  * Copyright (C) 2011 K. Paliouras <squarious _at gmail [dot] com>
  * 

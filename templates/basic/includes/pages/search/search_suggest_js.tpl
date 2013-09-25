@@ -1,5 +1,5 @@
 {*
- * WiND - Wireless Nodes Database
+ * Ventus - Wireless Nodes Database
  * Basic HTML Template
  *
  * Copyright (C) 2006 John Kolovos <cirrus@awmn.net>

@@ -1,6 +1,6 @@
 <?php
 /*
- * WiND - Wireless Nodes Database
+ * Ventus - Wireless Nodes Database
  *
  * Copyright (C) 2006 John Kolovos <cirrus@awmn.net>
  * Copyright (C) 2009-2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
