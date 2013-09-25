@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,50 +22,50 @@
 
 class message {
 	
-	var $show;
-	var $title;
-	var $message;
-	var $image;
-	var $forward;
-	var $forward_sec;
-	var $template='constructors/message.tpl';
-	var $tpl;
+    var $show;
+    var $title;
+    var $message;
+    var $image;
+    var $forward;
+    var $forward_sec;
+    var $template='constructors/message.tpl';
+    var $tpl;
 	
-	function message() {
+    function message() {
 
-	}
+    }
 
-	function set_fromlang($type, $message, $forward="", $image="", $hide_menu="", $override=FALSE) {
-		global $lang;
-		$this->set($lang['message'][$type][$message]['title'], $lang['message'][$type][$message]['body'], $forward, $image, $hide_menu, $override);
-	}
+    function set_fromlang($type, $message, $forward="", $image="", $hide_menu="", $override=FALSE) {
+        global $lang;
+        $this->set($lang['message'][$type][$message]['title'], $lang['message'][$type][$message]['body'], $forward, $image, $hide_menu, $override);
+    }
 	
-	function set($title, $message, $forward="", $image="", $hide_menu="", $override=FALSE) {
-		global $main;
-		if ($this->show == TRUE && !$override) return FALSE;
-		$this->show = TRUE;
-		$this->title = $title;
-		$this->message = $message;
-		if ($forward != '') $this->forward = $forward;
-		if ($image != '') $this->image = $image;
-		if ($hide_menu !== "") $main->menu->hide = $hide_menu;
-	}
+    function set($title, $message, $forward="", $image="", $hide_menu="", $override=FALSE) {
+        global $main;
+        if ($this->show == TRUE && !$override) return FALSE;
+        $this->show = TRUE;
+        $this->title = $title;
+        $this->message = $message;
+        if ($forward != '') $this->forward = $forward;
+        if ($image != '') $this->image = $image;
+        if ($hide_menu !== "") $main->menu->hide = $hide_menu;
+    }
 	
-	function output() {
-		global $vars, $design, $smarty, $lang;
+    function output() {
+        global $vars, $design, $smarty, $lang;
 		
-		if (isset($this->forward)) {
-			$sec = (isset($this->forward_sec)?$this->forward_sec:$vars['message']['delay']);
-			redirect($this->forward, $sec, FALSE);
-		}
+        if (isset($this->forward)) {
+            $sec = (isset($this->forward_sec)?$this->forward_sec:$vars['message']['delay']);
+            redirect($this->forward, $sec, FALSE);
+        }
 		
-		$this->tpl['title'] = $this->title;
-		$this->tpl['message'] = $this->message;
-		$this->tpl['image'] = $this->image;
-		$this->tpl['forward'] = $this->forward;
-		$this->tpl['forward_text'] = $lang['forward_text'];
-		return template($this->tpl, $this->template);
-	}	
+        $this->tpl['title'] = $this->title;
+        $this->tpl['message'] = $this->message;
+        $this->tpl['image'] = $this->image;
+        $this->tpl['forward'] = $this->forward;
+        $this->tpl['forward_text'] = $lang['forward_text'];
+        return template($this->tpl, $this->template);
+    }	
 	
 }
 

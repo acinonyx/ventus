@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,39 +22,39 @@
 
 class search_query {
 
-	var $tpl;
+    var $tpl;
 	
-	function search_query() {
+    function search_query() {
 		
-	}
+    }
 	
-	function output() {
-		global $db, $vars;
-		$q = get('q');
-		if(strrpos($q, "#")!==false && intval(substr(strrchr($q,'#'),1))!=0) {
-			$q = intval(substr(strrchr($q,'#'),1));
-		}
-		if (is_numeric($q) && strpos($q, ".") === FALSE) {
-			$page = array("page" => "nodes", "node" => $q);
-		} elseif ($db->cnt('', 'nodes', "name = '".$q."'") == 1) {
-			$node = $db->get('id', 'nodes', "name = '".$q."'");
-			$page = array("page" => "nodes", "node" => $node[0]['id']);
-		} elseif (is_ip($q, FALSE)) {
-			$page = array("page" => "ranges",
-						  "subpage" => "search",
-						  "form_search_ranges_search" => serialize(array("ip" => $q))
-						  );
-		} elseif (substr($q, -strlen(".".$vars['dns']['root_zone'])) == ".".$vars['dns']['root_zone']) {
-			$page = array("page" => "dnszones",
-						  "form_search_dns_search" => serialize(array("dns_zones__name" => $q))
-						  );
-		} else {
-			$page = array("page" => "nodes",
-						  "form_search_nodes_search" => serialize(array("nodes__name" => $q))
-						  );
-		}
-		redirect( makelink($page, '', '', FALSE) );
-	}
+    function output() {
+        global $db, $vars;
+        $q = get('q');
+        if(strrpos($q, "#")!==false && intval(substr(strrchr($q,'#'),1))!=0) {
+            $q = intval(substr(strrchr($q,'#'),1));
+        }
+        if (is_numeric($q) && strpos($q, ".") === FALSE) {
+            $page = array("page" => "nodes", "node" => $q);
+        } elseif ($db->cnt('', 'nodes', "name = '".$q."'") == 1) {
+            $node = $db->get('id', 'nodes', "name = '".$q."'");
+            $page = array("page" => "nodes", "node" => $node[0]['id']);
+        } elseif (is_ip($q, FALSE)) {
+            $page = array("page" => "ranges",
+                          "subpage" => "search",
+                          "form_search_ranges_search" => serialize(array("ip" => $q))
+            );
+        } elseif (substr($q, -strlen(".".$vars['dns']['root_zone'])) == ".".$vars['dns']['root_zone']) {
+            $page = array("page" => "dnszones",
+                          "form_search_dns_search" => serialize(array("dns_zones__name" => $q))
+            );
+        } else {
+            $page = array("page" => "nodes",
+                          "form_search_nodes_search" => serialize(array("nodes__name" => $q))
+            );
+        }
+        redirect( makelink($page, '', '', FALSE) );
+    }
 
 }
 

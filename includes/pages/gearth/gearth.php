@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2006 John Kolovos <cirrus@awmn.net>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,28 +22,28 @@
 
 
 if (get('subpage') != '') {
-	include_once(ROOT_PATH."includes/pages/gearth/gearth_".get('subpage').".php");
+    include_once(ROOT_PATH."includes/pages/gearth/gearth_".get('subpage').".php");
 } else {
-	include_once(ROOT_PATH."includes/pages/gearth/gearth_main.php");
+    include_once(ROOT_PATH."includes/pages/gearth/gearth_main.php");
 }
 
 class gearth {
 
-	var $tpl;
-	var $page;
+    var $tpl;
+    var $page;
 	
-	function gearth() {
-		if (get('subpage') != '') {
-			$p = "gearth_".get('subpage');
-			$this->page = new $p;
-		} else {
-			$this->page = new gearth_main;
-		}
-	}
+    function gearth() {
+        if (get('subpage') != '') {
+            $p = "gearth_".get('subpage');
+            $this->page = new $p;
+        } else {
+            $this->page = new gearth_main;
+        }
+    }
 	
-	function output() {
-		return $this->page->output();
-	}
+    function output() {
+        return $this->page->output();
+    }
 
 }
 

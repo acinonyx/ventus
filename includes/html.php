@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,22 +25,22 @@ include_once(ROOT_PATH."includes/body.php");
 
 class html {
 	
-	var $tpl;
-	var $head;
-	var $body;
+    var $tpl;
+    var $head;
+    var $body;
 	
-	function html() {
-		$this->head = new head;
-		$this->body = new body;		
-	}
+    function html() {
+        $this->head = new head;
+        $this->body = new body;		
+    }
 	
-	function output() {
-		$this->tpl['head'] = $this->head->output();
-		$this->tpl['body'] = $this->body->output();
-		$this->tpl['body_tags'] = $this->body->tags;
-		$ret = template($this->tpl, __FILE__);
-		return $ret;
-	}
+    function output() {
+        $this->tpl['head'] = $this->head->output();
+        $this->tpl['body'] = $this->body->output();
+        $this->tpl['body_tags'] = $this->body->tags;
+        $ret = template($this->tpl, __FILE__);
+        return $ret;
+    }
 	
 }
 

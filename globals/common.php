@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,10 +20,10 @@
  *
  */
 if (file_exists(ROOT_PATH."/install")) {
-	die("WiND error: Please delete \"install/\" folder if you have completed installation ...");
+    die("WiND error: Please delete \"install/\" folder if you have completed installation ...");
 }
 if (!file_exists(ROOT_PATH."config/config.php")) {
-	die("WiND error: Please make config/config.php file ...");
+    die("WiND error: Please make config/config.php file ...");
 }
 
 include_once(ROOT_PATH."globals/vars.php");
@@ -40,13 +41,13 @@ include_once(ROOT_PATH."globals/classes/form.php");
 include_once(ROOT_PATH."globals/classes/table.php");
 
 if (!file_exists($vars['smarty']['class'])) {
-	die("WiND error: Cannot find Smarty lib. Please check config.php ...");
+    die("WiND error: Cannot find Smarty lib. Please check config.php ...");
 }
 include_once($vars['smarty']['class']);
 
 if ($vars['template']['version'] < $vars['info']['min_template_version']
-		|| $vars['template']['version'] > $vars['info']['version']) {
-	die("WiND error: Template version does not match.");
+    || $vars['template']['version'] > $vars['info']['version']) {
+    die("WiND error: Template version does not match.");
 }
 
 $smarty = new Smarty;
@@ -59,14 +60,14 @@ reset_smarty();
 $construct = new construct;
 
 if ($vars['mail']['smtp'] != '') {
-	ini_set('SMTP', $vars['mail']['smtp']);
-	ini_set('smtp_port', $vars['mail']['smtp_port']);
+    ini_set('SMTP', $vars['mail']['smtp']);
+    ini_set('smtp_port', $vars['mail']['smtp_port']);
 }
 
 $db = new mysql($vars['db']['server'], $vars['db']['username'], $vars['db']['password'], $vars['db']['database']);
 
 if ($db->error) {
-	die("WiND MySQL database error: $db->error_report");
+    die("WiND MySQL database error: $db->error_report");
 }
 
 ?>

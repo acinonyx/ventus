@@ -2,10 +2,10 @@
 
 $template_config = array(
 	
-	'template' => array(
-		'version' => 0,
-		'minor_version' => 0
-		)
+    'template' => array(
+        'version' => 0,
+        'minor_version' => 0
+    )
 
 );
 

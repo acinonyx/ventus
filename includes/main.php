@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,50 +30,50 @@ include_once(ROOT_PATH."includes/main_menu.php");
 
 class main {
 	
-	var $html;
-	var $userdata;
-	var $message;
-	var $header;
-	var $center;
-	var $footer;
-	var $menu;
+    var $html;
+    var $userdata;
+    var $message;
+    var $header;
+    var $center;
+    var $footer;
+    var $menu;
 	
-	function main() {
-		$this->html = new html;
-		$this->userdata = new userdata;
-		$this->message = new message;
-		$this->header = new header;
-		$this->center = new center;
-		$this->footer = new footer;
-		$this->menu = new menu;
-	}
+    function main() {
+        $this->html = new html;
+        $this->userdata = new userdata;
+        $this->message = new message;
+        $this->header = new header;
+        $this->center = new center;
+        $this->footer = new footer;
+        $this->menu = new menu;
+    }
 	
-	function output() {
-		global $lang;
+    function output() {
+        global $lang;
 		
-		if (get('session_lang') != '') $_SESSION['lang'] = get('session_lang');
-		if (isset($this->userdata->info)) {
-		    language_set($this->userdata->info['language']);
-		}
-		else {
-		    language_set();
-		}
+        if (get('session_lang') != '') $_SESSION['lang'] = get('session_lang');
+        if (isset($this->userdata->info)) {
+            language_set($this->userdata->info['language']);
+        }
+        else {
+            language_set();
+        }
 		
-		// Reload user info from database using SET NAMES (workaround)
-		$this->userdata->load_info();
+        // Reload user info from database using SET NAMES (workaround)
+        $this->userdata->load_info();
 		
-		$this->html->head->add_title($lang['site_title']);
-		$this->html->head->add_meta("text/html; charset=".$lang['charset'], "", "Content-Type");
-		header("Content-Type: text/html; charset=".$lang['charset']);
+        $this->html->head->add_title($lang['site_title']);
+        $this->html->head->add_meta("text/html; charset=".$lang['charset'], "", "Content-Type");
+        header("Content-Type: text/html; charset=".$lang['charset']);
 		
-		$this->html->body->tpl['center'] = $this->center->output();
-		$this->html->body->tpl['menu'] = $this->menu->output();
-		$this->html->body->tpl['header'] = $this->header->output();
-		$this->html->body->tpl['footer'] = $this->footer->output();
-		if ($this->message->show) $this->html->body->tpl['message'] = $this->message->output();
+        $this->html->body->tpl['center'] = $this->center->output();
+        $this->html->body->tpl['menu'] = $this->menu->output();
+        $this->html->body->tpl['header'] = $this->header->output();
+        $this->html->body->tpl['footer'] = $this->footer->output();
+        if ($this->message->show) $this->html->body->tpl['message'] = $this->message->output();
 		
-		return $this->html->output();
-	}
+        return $this->html->output();
+    }
 	
 }
 

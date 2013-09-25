@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2006 John Kolovos <cirrus@awmn.net>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,15 +22,15 @@
 
 class gearth_main {
 
-	var $tpl;
+    var $tpl;
 	
-	function gearth_main() {
+    function gearth_main() {
 
-	}
+    }
 	
-	function output() {
-		return template($this->tpl, __FILE__);
-	}
+    function output() {
+        return template($this->tpl, __FILE__);
+    }
 
 }
 

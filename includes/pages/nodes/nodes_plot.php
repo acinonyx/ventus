@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,27 +31,27 @@ $geoimage = new geoimage();
 
 class nodes_plot {
 
-	function nodes_plot() {
+    function nodes_plot() {
 		
-	}
+    }
 	
-	function output() {
-		global $db, $geoimage;
-		$a_node = $db->get('latitude, longitude, elevation', 'nodes', "id = '".get('a_node')."'");
-		$b_node = $db->get('latitude, longitude, elevation', 'nodes', "id = '".get('b_node')."'");
-		$width = (integer)$_GET['width'];
-		$height = (integer)$_GET['height'];
-		if ($width == 0) $width = 600;
-		if ($height == 0) $height = 300;
+    function output() {
+        global $db, $geoimage;
+        $a_node = $db->get('latitude, longitude, elevation', 'nodes', "id = '".get('a_node')."'");
+        $b_node = $db->get('latitude, longitude, elevation', 'nodes', "id = '".get('b_node')."'");
+        $width = (integer)$_GET['width'];
+        $height = (integer)$_GET['height'];
+        if ($width == 0) $width = 600;
+        if ($height == 0) $height = 300;
 
-		$point_a = new coordinate($a_node[0]['latitude'], $a_node[0]['longitude']);
-		$point_b = new coordinate($b_node[0]['latitude'], $b_node[0]['longitude']);
-		$image = $geoimage->plotlink($width, $height, $point_a, $point_b, (integer)$a_node[0]['elevation'], (integer)$b_node[0]['elevation']);
+        $point_a = new coordinate($a_node[0]['latitude'], $a_node[0]['longitude']);
+        $point_b = new coordinate($b_node[0]['latitude'], $b_node[0]['longitude']);
+        $image = $geoimage->plotlink($width, $height, $point_a, $point_b, (integer)$a_node[0]['elevation'], (integer)$b_node[0]['elevation']);
 		
-		header('Content-type: image/png');
-		imagepng($image);
-		exit;
-	}
+        header('Content-type: image/png');
+        imagepng($image);
+        exit;
+    }
 
 }
 

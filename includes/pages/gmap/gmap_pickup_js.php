@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,38 +22,38 @@
 
 class gmap_pickup_js {
 	
-	var $tpl;
+    var $tpl;
 
-	function gmap_pickup_js() {
+    function gmap_pickup_js() {
 		
-	}
+    }
 	
-	function output() {
-		global $db, $lang, $vars;
+    function output() {
+        global $db, $lang, $vars;
 		
-		$max_lat = $vars['gmap']['bounds']['max_latitude'];
-		$min_lat = $vars['gmap']['bounds']['min_latitude'];
-		$max_lon = $vars['gmap']['bounds']['max_longitude'];
-		$min_lon = $vars['gmap']['bounds']['min_longitude'];
+        $max_lat = $vars['gmap']['bounds']['max_latitude'];
+        $min_lat = $vars['gmap']['bounds']['min_latitude'];
+        $max_lon = $vars['gmap']['bounds']['max_longitude'];
+        $min_lon = $vars['gmap']['bounds']['min_longitude'];
 
-		$this->tpl['max_latitude'] = str_replace(",", ".", $max_lat);
-		$this->tpl['max_longitude'] = str_replace(",", ".", $max_lon);
-		$this->tpl['min_latitude'] = str_replace(",", ".", $min_lat);
-		$this->tpl['min_longitude'] = str_replace(",", ".", $min_lon);
+        $this->tpl['max_latitude'] = str_replace(",", ".", $max_lat);
+        $this->tpl['max_longitude'] = str_replace(",", ".", $max_lon);
+        $this->tpl['min_latitude'] = str_replace(",", ".", $min_lat);
+        $this->tpl['min_longitude'] = str_replace(",", ".", $min_lon);
 
-		$this->tpl['center_latitude'] = ($max_lat + $min_lat) / 2;
-		$this->tpl['center_longitude'] = ($max_lon + $min_lon) / 2;
-		$this->tpl['center_latitude'] = str_replace(",", ".", $this->tpl['center_latitude']);
-		$this->tpl['center_longitude'] = str_replace(",", ".", $this->tpl['center_longitude']);
+        $this->tpl['center_latitude'] = ($max_lat + $min_lat) / 2;
+        $this->tpl['center_longitude'] = ($max_lon + $min_lon) / 2;
+        $this->tpl['center_latitude'] = str_replace(",", ".", $this->tpl['center_latitude']);
+        $this->tpl['center_longitude'] = str_replace(",", ".", $this->tpl['center_longitude']);
 		
-		$this->tpl['object_lat'] = stripslashes(get('object_lat'));
-		$this->tpl['object_lon'] = stripslashes(get('object_lon'));
+        $this->tpl['object_lat'] = stripslashes(get('object_lat'));
+        $this->tpl['object_lon'] = stripslashes(get('object_lon'));
 		
-		$this->tpl['maps_available'] = $vars['gmap']['maps_available'];
+        $this->tpl['maps_available'] = $vars['gmap']['maps_available'];
 		
-		echo template($this->tpl, __FILE__);
-		exit;
-	}
+        echo template($this->tpl, __FILE__);
+        exit;
+    }
 
 }
 

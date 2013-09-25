@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,36 +21,36 @@
  */
 
 if (get('subpage') != '') {
-	include_once(ROOT_PATH."includes/pages/nodes/nodes_".get('subpage').".php");
+    include_once(ROOT_PATH."includes/pages/nodes/nodes_".get('subpage').".php");
 } else {
-	if (get('node') != '') {
-		include_once(ROOT_PATH."includes/pages/nodes/nodes_view.php");
-	} else {
-		include_once(ROOT_PATH."includes/pages/nodes/nodes_search.php");
-	}
+    if (get('node') != '') {
+        include_once(ROOT_PATH."includes/pages/nodes/nodes_view.php");
+    } else {
+        include_once(ROOT_PATH."includes/pages/nodes/nodes_search.php");
+    }
 }
 
 class nodes {
 
-	var $tpl;
-	var $page;
+    var $tpl;
+    var $page;
 	
-	function nodes() {
-		if (get('subpage') != '') {
-			$p = "nodes_".get('subpage');
-			$this->page = new $p;
-		} else {
-			if (get('node') != '') {
-				$this->page = new nodes_view;
-			} else {
-				$this->page = new nodes_search;
-			}
-		}
-	}
+    function nodes() {
+        if (get('subpage') != '') {
+            $p = "nodes_".get('subpage');
+            $this->page = new $p;
+        } else {
+            if (get('node') != '') {
+                $this->page = new nodes_view;
+            } else {
+                $this->page = new nodes_search;
+            }
+        }
+    }
 	
-	function output() {
-		return $this->page->output();
-	}
+    function output() {
+        return $this->page->output();
+    }
 
 }
 

@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2006 John Kolovos <cirrus@awmn.net>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,19 +22,19 @@
 
 class search_suggest_js {
 	
-	var $tpl;
+    var $tpl;
 
-	function search_suggest_js() {
+    function search_suggest_js() {
 		
-	}
+    }
 	
-	function output() {
+    function output() {
 
-		$this->tpl['suggest_url'] = makelink(array("page" => "search", "subpage" => "suggest"),FALSE, TRUE, FALSE);
+        $this->tpl['suggest_url'] = makelink(array("page" => "search", "subpage" => "suggest"),FALSE, TRUE, FALSE);
 
-		echo template($this->tpl, __FILE__);
-		exit;
-	}
+        echo template($this->tpl, __FILE__);
+        exit;
+    }
 
 }
 

@@ -3,6 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +22,8 @@
 
 $vars = array(
 	
-	'info' => array(
-		'version' => array(1, 0, 'rc2-pre'),
-		'min_template_version' => 0
-		)
+    'info' => array(
+        'version' => array(1, 0, 'rc2-pre'),
+        'min_template_version' => 0
+    )
 );

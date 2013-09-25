@@ -3,7 +3,7 @@
  * WiND - Wireless Nodes Database
  *
  * Copyright (C) 2005 Nikolaos Nikalexis <winner@cube.gr>
- * Copyright (C) 2010 Vasilis Tsiligiannis <b_tsiligiannis@silverton.gr>
+ * Copyright (C) 2010-2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,21 +22,21 @@
 
 class pickup_gmap {
 
-	var $tpl;
+    var $tpl;
 	
-	function pickup_gmap() {
+    function pickup_gmap() {
 		
-	}
+    }
 	
-	function output() {
-		if ($_SERVER['REQUEST_METHOD'] == 'POST' && method_exists($this, 'output_onpost_'.$_POST['form_name'])) return call_user_func(array($this, 'output_onpost_'.$_POST['form_name']));
-		global $construct, $main, $vars;
-		$main->header->hide = TRUE;
-		$main->menu->hide = TRUE;
-		$main->footer->hide = TRUE;
-		$this->tpl['gmap_key_ok'] = include_gmap(htmlspecialchars("?page=gmap&subpage=pickup_js&object_lat=".stripslashes(get('object_lat'))."&object_lon=".stripslashes(get('object_lon'))));
-		return template($this->tpl, __FILE__);
-	}
+    function output() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && method_exists($this, 'output_onpost_'.$_POST['form_name'])) return call_user_func(array($this, 'output_onpost_'.$_POST['form_name']));
+        global $construct, $main, $vars;
+        $main->header->hide = TRUE;
+        $main->menu->hide = TRUE;
+        $main->footer->hide = TRUE;
+        $this->tpl['gmap_key_ok'] = include_gmap(htmlspecialchars("?page=gmap&subpage=pickup_js&object_lat=".stripslashes(get('object_lat'))."&object_lon=".stripslashes(get('object_lon'))));
+        return template($this->tpl, __FILE__);
+    }
 
 }
 
