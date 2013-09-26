@@ -55,9 +55,9 @@ class mysql {
         $this->affected_rows = 0;
         $this->last_query=$query;
         $this->total_queries += 1;
-        $mt = $this->getmicrotime();
+        $mt = microtime(TRUE);
         $q = mysql_query($query, $this->mysql_link);
-        $this->total_time += ($this->getmicrotime() - $mt);
+        $this->total_time += (microtime(TRUE) - $mt);
         $this->error();
         return $q;
     }
@@ -265,11 +265,6 @@ class mysql {
         $this->insert_id = $insert_id_return;
         $this->last_query = $last_query_return;
     }
-
-    function getmicrotime(){ 
-        list($usec, $sec) = explode(" ",microtime()); 
-        return ((float)$usec + (float)$sec); 
-    } 
 
     function date_now() {
         return date("Y-m-d H:i:s");

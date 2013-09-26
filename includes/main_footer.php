@@ -27,7 +27,7 @@ class footer {
     function output() {
         global $db, $php_start, $main, $vars;
         if ($this->hide) return;
-        $this->tpl['php_time'] = getmicrotime() - $php_start;
+        $this->tpl['php_time'] = microtime(TRUE) - $php_start;
         $this->tpl['mysql_time'] = $db->total_time;
         $this->tpl['wind_version'] = format_version($vars['info']['version']);
         if (isset($main->userdata->privileges['admin']) && $main->userdata->privileges['admin'] === TRUE && $vars['debug']['enabled'] == TRUE) {

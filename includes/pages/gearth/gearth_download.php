@@ -359,7 +359,7 @@ class gearth_download {
         $xml .= "</ScreenOverlay>\n";
         $xml .= "</Folder>\n";
         $xml .= "</kml>\n";
-        $time = getmicrotime() - $php_start;
+        $time = microtime(TRUE) - $php_start;
         $xml .= "<!-- time taken to compile: ".$time."-->";
         $xml .= "<!-- Geneterated by WiND -->";
 

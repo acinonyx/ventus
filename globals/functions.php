@@ -381,11 +381,6 @@ function include_gmap($javascript) {
     return TRUE;
 }
 
-function getmicrotime(){ 
-    list($usec, $sec) = explode(" ",microtime()); 
-    return ((float)$usec + (float)$sec); 
-} 
-
 function array_multimerge($array1, $array2) {
     if (is_array($array2) && count($array2)) {
         foreach ($array2 as $k => $v) {

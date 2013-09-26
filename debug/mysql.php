@@ -30,9 +30,9 @@ if ($vars['debug']['enabled'] == FALSE) die("WiND: Debug mode is not enabled. Ch
 class mysql_debug extends mysql {
 	
     function query ($query) {
-        $mt = $this->getmicrotime();
+        $mt = microtime(TRUE);
         $return = parent::query($query);
-        $time = $this->getmicrotime() - $mt;
+        $time = microtime(TRUE) - $mt;
         $r=mysql_query('EXPLAIN '.$query, $this->mysql_link);
         $explain=$this->result_to_data($r);
         $ex_echo .= '<table border="1">';

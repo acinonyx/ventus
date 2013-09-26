@@ -33,7 +33,7 @@ include_once($vars['templates']['path'].$vars['templates']['default'].'/config.p
 $vars = array_merge($vars, $template_config);
 include_once(ROOT_PATH."globals/functions.php");
 
-$php_start = getmicrotime();
+$php_start = microtime(TRUE);
 
 include_once(ROOT_PATH."globals/classes/mysql.php");
 include_once(ROOT_PATH."globals/classes/construct.php");
