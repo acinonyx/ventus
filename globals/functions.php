@@ -171,13 +171,13 @@ function template($assign_array, $file) {
 }
 
 function reset_smarty() {
-    global $smarty, $lang;
+    global $vars, $smarty, $lang;
     $smarty->clearAllAssign();
     $smarty->assignByRef('lang', $lang);
-    $smarty->assign('tpl_dir', $smarty->getTemplateDir());
-    $smarty->assign('img_dir', $smarty->getTemplateDir() . "images/");
-    $smarty->assign('css_dir', $smarty->getTemplateDir() . "css/");
-    $smarty->assign('js_dir', $smarty->getTemplateDir() . "scripts/javascripts/");
+    $smarty->assign('tpl_dir', $vars['templates']['path'] . $vars['templates']['default'] . '/');
+    $smarty->assign('img_dir', $vars['templates']['path'] . $vars['templates']['default'] . "/images/");
+    $smarty->assign('css_dir', $vars['templates']['path'] . $vars['templates']['default'] . "/css/");
+    $smarty->assign('js_dir', $vars['templates']['path'] . $vars['templates']['default'] . "/scripts/javascripts/");
 }
 
 function delfile($str) 
