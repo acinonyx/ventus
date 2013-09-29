@@ -1,5 +1,7 @@
 <?php
 
+define('SMARTY_DIR', '/usr/share/php/smarty/libs/');
+
 $config = array(
 	
     'db' => array(
@@ -37,10 +39,6 @@ $config = array(
         'enabled' => array(
             'greek' => TRUE,
             'english' => TRUE)
-    ),
-		
-    'smarty' => array(
-        'class' => '/usr/share/php/smarty/libs/Smarty.class.php'
     ),
 		
     'constructor' => array(

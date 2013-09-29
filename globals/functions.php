@@ -172,12 +172,12 @@ function template($assign_array, $file) {
 
 function reset_smarty() {
     global $smarty, $lang;
-    $smarty->clear_all_assign();
-    $smarty->assign_by_ref('lang', $lang);
-    $smarty->assign('tpl_dir', $smarty->template_dir);
-    $smarty->assign('img_dir', $smarty->template_dir."images/");
-    $smarty->assign('css_dir', $smarty->template_dir."css/");
-    $smarty->assign('js_dir', $smarty->template_dir."scripts/javascripts/");
+    $smarty->clearAllAssign();
+    $smarty->assignByRef('lang', $lang);
+    $smarty->assign('tpl_dir', $smarty->getTemplateDir());
+    $smarty->assign('img_dir', $smarty->getTemplateDir() . "images/");
+    $smarty->assign('css_dir', $smarty->getTemplateDir() . "css/");
+    $smarty->assign('js_dir', $smarty->getTemplateDir() . "scripts/javascripts/");
 }
 
 function delfile($str) 

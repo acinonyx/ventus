@@ -39,22 +39,14 @@ include_once(ROOT_PATH."globals/classes/mysql.php");
 include_once(ROOT_PATH."globals/classes/construct.php");
 include_once(ROOT_PATH."globals/classes/form.php");
 include_once(ROOT_PATH."globals/classes/table.php");
-
-if (!file_exists($vars['smarty']['class'])) {
-    die("WiND error: Cannot find Smarty lib. Please check config.php ...");
-}
-include_once($vars['smarty']['class']);
+require_once(ROOT_PATH . "globals/classes/smarty.php");
 
 if ($vars['template']['version'] < $vars['info']['min_template_version']
     || $vars['template']['version'] > $vars['info']['version']) {
     die("WiND error: Template version does not match.");
 }
 
-$smarty = new Smarty;
-$smarty->template_dir = $vars['templates']['path'].$vars['templates']['default'].'/';
-$smarty->plugins_dir = array($vars['templates']['path'].$vars['templates']['default'].'/plugins/', 'plugins');
-$smarty->compile_dir = $vars['templates']['compiled_path'].$vars['templates']['default'].'/';
-$smarty->register_modifier('stripslashes', 'stripslashes');
+$smarty = new Smarty3;
 reset_smarty();
 
 $construct = new construct;
