@@ -3,6 +3,7 @@
  * Basic HTML Template
  *
  * Copyright (C) 2005 Konstantinos Papadimitriou <vinilios@cube.gr>
+ * Copyright (C) 2013 Vasilis Tsiligiannis <acinonyx@openwrt.gr>
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
