@@ -29,7 +29,7 @@ class Smarty3 extends Smarty {
 
         $this->setTemplateDir($vars['templates']['path'] . $vars['templates']['default'] . '/');
         $this->setCompileDir($vars['templates']['compiled_path'] . $vars['templates']['default'] . '/');
-        $this->setPluginsDir(array($vars['templates']['path'] . $vars['templates']['default'] . '/plugins/', 'plugins'));
+        $this->addPluginsDir($vars['templates']['path'] . $vars['templates']['default'] . '/plugins/');
         $this->registerPlugin('modifier', 'stripslashes', 'stripslashes');
     }
 }
