@@ -82,7 +82,7 @@
 </tr>
 <tr>
 <td colspan="2" class="table-page-pad">
-{include assign=t file=includes/pages/nodes/myview.tpl}
+{include assign=t file="includes/pages/nodes/myview.tpl"}
 {include file="generic/title2.tpl" title="`$lang.myview`" content=$t}
 </td>
 </tr>

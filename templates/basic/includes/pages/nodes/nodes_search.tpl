@@ -27,7 +27,7 @@
 		{if $gmap_key_ok!=="nomap"}
 			<table align="center" bgcolor="#DBE0D7" cellpadding="0" cellspacing="2">
 				<tr>
-					<td align="left">{include file="generic/link.tpl link=$link_gearth content="`$lang.google_earth`"}</td><td align="right">{include file=generic/link.tpl" link=$link_fullmap content="`$lang.new_window`" target="_blank"}</td>
+					<td align="left">{include file="generic/link.tpl" link=$link_gearth content="`$lang.google_earth`"}</td><td align="right">{include file="generic/link.tpl" link=$link_fullmap content="`$lang.new_window`" target="_blank"}</td>
 				</tr>
 				<tr>
 					<td style="font-size:12px; text-align:center;" colspan="2">
