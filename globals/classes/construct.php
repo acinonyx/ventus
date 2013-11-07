@@ -37,7 +37,7 @@ class construct {
     }
 	
     function table($table, $template='constructors/table.tpl') {
-        global $smarty;
+        global $vars, $smarty;
         if (substr(strrchr($template, "."), 1) != "tpl") {
             $path_parts = pathinfo($template);
             $tpl_file = 'includes'.substr($path_parts['dirname'], strpos($path_parts['dirname'], 'includes') + 8)."/".basename($path_parts['basename'], '.'.$path_parts['extension']).'_'.$table->info['TABLE_NAME'].'.tpl';
